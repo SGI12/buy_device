@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-14T18:32:39.055Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="3Xe7S14IRO55H6VHI9-M" version="21.3.0" type="device">
+<mxfile host="app.diagrams.net" modified="2023-05-14T18:44:13.080Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="Eel-N1ADt_N9GaIARSic" version="21.3.0" type="device">
   <diagram name="Страница 1" id="Y_uzJsi4zg67m1P2_5Rm">
     <mxGraphModel dx="1194" dy="1895" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -46,7 +46,7 @@
         <mxCell id="DEF2NMNBkC_QdPxtARiJ-43" value="price" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="DEF2NMNBkC_QdPxtARiJ-40">
           <mxGeometry y="86" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="DEF2NMNBkC_QdPxtARiJ-44" value="rate" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="DEF2NMNBkC_QdPxtARiJ-40">
+        <mxCell id="DEF2NMNBkC_QdPxtARiJ-44" value="rating" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="DEF2NMNBkC_QdPxtARiJ-40">
           <mxGeometry y="116" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="DEF2NMNBkC_QdPxtARiJ-45" value="img" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="DEF2NMNBkC_QdPxtARiJ-40">
