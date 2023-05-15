@@ -9,6 +9,7 @@ const fileUpload = require('express-fileupload')
 const PORT = process.env.PORT || 5000
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 const path = require('path')
+const bodyParser = require('body-parser')
 
 
 const app = express()
