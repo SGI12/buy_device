@@ -17,11 +17,18 @@ export default class DeviceStore {
         ]
 
         this._devices = [
-            {id: 1, name: 'iPhone 12 PRO', price: 97900, rating: 5, img: 'https://hi-stores.ru/upload/iblock/703/70339db19db15658894df7bb9dd3376f.jpg'},
-            {id: 2, name: 'iPhone 12 PRO', price: 97900, rating: 5, img: 'https://hi-stores.ru/upload/iblock/703/70339db19db15658894df7bb9dd3376f.jpg'},
-            {id: 3, name: 'iPhone 12 PRO', price: 97900, rating: 5, img: 'https://hi-stores.ru/upload/iblock/703/70339db19db15658894df7bb9dd3376f.jpg'},
-            {id: 4, name: 'iPhone 12 PRO', price: 97900, rating: 5, img: 'https://hi-stores.ru/upload/iblock/703/70339db19db15658894df7bb9dd3376f.jpg'},
-            {id: 5, name: 'iPhone 12 PRO', price: 97900, rating: 5, img: 'https://hi-stores.ru/upload/iblock/703/70339db19db15658894df7bb9dd3376f.jpg'},
+            {id: 1, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 2, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 3, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 4, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 5, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 6, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 7, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 8, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 9, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 10, name: 'Apple iPhone 12 PRO', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            {id: 11, name: 'Apple iPhone 12 PRO', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'},
+            
         ]
         this._selectedType = {}
         this._selectedBrand = {}
