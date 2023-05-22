@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ButtonGroup, Col, Container, Form, Image, Row, ToggleButton } from 'react-bootstrap';
+import { Button, Col, Container, Form, Image, Row, ToggleButton } from 'react-bootstrap';
 
 const DevicePage = () => {
     const device = {id: 1, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'}
@@ -18,9 +18,18 @@ const DevicePage = () => {
 
 
     const [variantRadioValue, setVariantRadioValue] = useState('0');
-    const [deliveryRadioValue, setDeliveryRadioValue] = useState('1');
-    const [paymentRadioValue, setPaymentRadioValue] = useState('2');
-    
+    const [deliveryRadioValue, setDeliveryRadioValue] = useState('0');
+    const [paymentRadioValue, setPaymentRadioValue] = useState('0');
+    const description = [
+        {id:1, title: 'Серия', description: 'iPhone 12 PRO'},
+        {id:2, title: 'Память', description: '1 TB'},
+        {id:3, title: 'Процессор', description: 'A12 Bionic'},
+        {id:4, title: 'Диагональ дисплея', description: '6,5"'},
+        {id:5, title: 'Разрешение камеры', description: '48 Мп + 12 Мп + 12 Мп'},
+        {id:6, title: 'Питание', description: 'Li-Ion, 5 500 mAh'},
+        
+        
+    ]
 
     return (
         
@@ -32,7 +41,7 @@ const DevicePage = () => {
 
             <Col md={6}>
                 <Form className="d-flex flex-column align-items-center">
-                    <h1 className='mt-3 mb-5' style={{fontSize: 22, lineHeight: '30px',}}>{device.name}</h1>
+                    <h1 className='mt-3 mb-5' style={{fontSize: 28, lineHeight: '30px', fontWeight: 'bold'}}>{device.name}</h1>
                     <div className='d-flex flex-column'> 
                         <div style={{width: '28em'}} className='d-flex mb-3'>
                             <div style={{height: '40px', textAlign: 'center', fontSize: '16px', display: 'table'}} className='me-5 d-flex align-items-center'>
@@ -104,8 +113,21 @@ const DevicePage = () => {
                             </div>
                         </div>
                     </div>
+
+                    <div style={{borderTop: '1px solid #e8e8ed', width: '100%'}} className='mt-5 pt-4'>
+                        <h3 style={{fontSize: '38px', lineHeight: '38px', fontWeight: 'bold'}} className='d-flex justify-content-center pb-4'>{device.price} &#8381;</h3>
+                        <Button style={{width: '100%'}} variant='success'> Добавить в корзину</Button>
+                    </div>
                 </Form>
             </Col>
+        </Row>
+        <Row className='d-flex flex-column m-3'>
+            <h1 style={{fontSize: '38px', lineHeight: '38px', fontWeight: 'bold', color: '#198754'}} className='d-flex justify-content-center p-4'>Характеристики</h1>
+            {description.map(info =>
+                <Row key={info.id} style={{borderBottom: '1px solid #e8e8ed', padding: 10, fontSize: '20px', lineHeight: '24px'}}> 
+                    <Col md={9} className='mb-3'>{info.title}</Col> <Col md={3}>{info.description} </Col>
+                </Row>
+                )}
         </Row>
         </Container>
     );
