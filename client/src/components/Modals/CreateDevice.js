@@ -1,100 +1,136 @@
-import React, { useContext, useState } from 'react';
-import { Button, Col, Dropdown, Form, Modal, Row } from 'react-bootstrap';
-import { Context } from '../../index';
+import React, { useState } from 'react';
+import { Button, Col, Container, Form, Image, Row, ToggleButton } from 'react-bootstrap';
 
-const CreateDevice = ({show, onHide}) => {
-    const {device} = useContext(Context)
-    const [info, setInfo] = useState([])
-    const addInfo  = () => {
-        setInfo([...info, {title: '',  description: '', number: Date.now()}])
-    }
+const DevicePage = () => {
+    const device = {id: 1, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'}
+    const variant_radios = [
+        { name: 'Новый', value: '1' },
+        { name: 'Восстановленный', value: '2' },
+      ];
+    const delivery_radios = [
+        { name: 'Самовывоз', value: '1' },
+        { name: 'Курьером', value: '2' },
+      ];
+    const payment_radios = [
+        { name: 'Онлайн', value: '3' },
+        { name: 'При получении', value: '4' },
+      ];
 
-    const removeInfo  = (number) => {
-        setInfo(info.filter(i => i.number !== number))
-    }
+
+    const [variantRadioValue, setVariantRadioValue] = useState('0');
+    const [deliveryRadioValue, setDeliveryRadioValue] = useState('0');
+    const [paymentRadioValue, setPaymentRadioValue] = useState('0');
+    const description = [
+        {id:1, title: 'Серия', description: 'iPhone 12 PRO'},
+        {id:2, title: 'Память', description: '1 TB'},
+        {id:3, title: 'Процессор', description: 'A12 Bionic'},
+        {id:4, title: 'Диагональ дисплея', description: '6,5"'},
+        {id:5, title: 'Разрешение камеры', description: '48 Мп + 12 Мп + 12 Мп'},
+        {id:6, title: 'Питание', description: 'Li-Ion, 5 500 mAh'},
+        
+        
+    ]
+
     return (
-    <Modal
-        show={show}
-        onHide={onHide}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Добавить новый тип:
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-              <Dropdown className='mt-3 mb-2'>
-                <Dropdown.Toggle>Выберите тип</Dropdown.Toggle>
-                <Dropdown.Menu>
-                    {device.types.map(type => 
-                        <Dropdown.Item key={type.id}>{type.name}</Dropdown.Item>
-                        )}
-                </Dropdown.Menu>
-              </Dropdown>
+        
+        <Container className='mt-3'>
+         <Row>
+            <Col md={6}>
+                <Image width={500} height={500} src={device.img}/>
+            </Col>
 
-              <Dropdown className='mt-3 mb-2'>
-                <Dropdown.Toggle>Выберите бренд</Dropdown.Toggle>
-                <Dropdown.Menu>
-                    {device.brands.map(brand => 
-                        <Dropdown.Item key={brand.id}>{brand.name}</Dropdown.Item>
-                        )}
-                </Dropdown.Menu>
-              </Dropdown>
-              <Form.Control
-                className='mt-3'
-                placeholder='Введите название устройства'
-              />
+            <Col md={6}>
+                <Form className="d-flex flex-column align-items-center">
+                    <h1 className='mt-3 mb-5' style={{fontSize: 28, lineHeight: '30px', fontWeight: 'bold'}}>{device.name}</h1>
+                    <div className='d-flex flex-column'> 
+                        <div style={{width: '28em'}} className='d-flex mb-3'>
+                            <div style={{height: '40px', textAlign: 'center', fontSize: '16px', display: 'table'}} className='me-5 d-flex align-items-center'>
+                                Вариант
+                            </div>
+                            <div className='d-flex justify-content-around'>
+                            {variant_radios.map((radio, idx) => (
+                            <ToggleButton
+                                className='ms-5'
+                                key={idx}
+                                id={`radio-${idx}`}
+                                type="radio"
+                                variant={'outline-success'}
+                                name="variantRadio"
+                                value={radio.value}
+                                checked={variantRadioValue === radio.value}
+                                onChange={(e) => setVariantRadioValue(e.currentTarget.value)}
+                            >
+                                {radio.name}
+                            </ToggleButton>
+                                ))}
+                            </div>
+                            
+                        </div>
 
-              <Form.Control
-                className='mt-3'
-                placeholder='Введите стоимость устройства'
-                type='number'
-              />
+                        <div style={{width: '29em'}}className='d-flex mb-3'>
+                            <div style={{height: '40px', textAlign: 'center', fontSize: '16px', display: 'table'}} className='me-5 d-flex align-items-center'>
+                                Доставка
+                            </div>
+                            <div className='d-flex justify-content-around'>
+                            {delivery_radios.map((radio, idx) => (
+                            <ToggleButton
+                                className='ms-5'
+                                key={idx}
+                                id={`radio1-${idx}`}
+                                type="radio"
+                                variant={'outline-success'}
+                                name="deliveryRadio"
+                                value={radio.value}
+                                checked={deliveryRadioValue === radio.value}
+                                onChange={(e) => setDeliveryRadioValue(e.currentTarget.value)}
+                            >
+                                {radio.name}
+                            </ToggleButton>
+                                ))}
+                            </div>
+                        </div>
 
-              <Form.Control
-                className='mt-3'
-                type='file'
-              />
-              <hr/>
-              <Button
-              className='mb-3'
-              variant='outline-dark'
-              onClick={addInfo}
-              >Добавить новое свойство</Button>
-              {info.map(i => 
-                <Row className='mt-4' key={i.number}>
-                    <Col md={4}>
-                        <Form.Control
-                            placeholder='Введите название свойства'
-                        />
-                    </Col>
+                        <div style={{width: '29em'}}className='d-flex '>
+                            <div style={{height: '40px', verticalAlign: 'center', fontSize: '16px'}} className='me-5 d-flex align-items-center'>
+                                Оплата
+                            </div>
+                            <div className='d-flex justify-content-around'>
+                            {payment_radios.map((radio, idx) => (
+                            <ToggleButton
+                                className='ms-5'
+                                key={idx}
+                                id={`radio2-${idx}`}
+                                type="radio"
+                                variant={'outline-success'}
+                                name="paymentRadio"
+                                value={radio.value}
+                                checked={paymentRadioValue === radio.value}
+                                onChange={(e) => setPaymentRadioValue(e.currentTarget.value)}
+                            >
+                                {radio.name}
+                            </ToggleButton>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
 
-                    <Col md={4}>
-                        <Form.Control
-                        placeholder='Введите описание свойства' 
-                        />
-                    </Col>
-
-                    <Col md={4}>
-                        <Button variant='outline-danger'
-                        onClick={() => removeInfo(i.number)}
-                        >Удалить</Button>
-                    </Col>
+                    <div style={{borderTop: '1px solid #e8e8ed', width: '100%'}} className='mt-5 pt-4'>
+                        <h3 style={{fontSize: '38px', lineHeight: '38px', fontWeight: 'bold'}} className='d-flex justify-content-center pb-4'>{device.price} &#8381;</h3>
+                        <Button style={{width: '100%'}} variant='success'> Добавить в корзину</Button>
+                    </div>
+                </Form>
+            </Col>
+        </Row>
+        <Row className='d-flex flex-column m-3'>
+            <h1 style={{fontSize: '38px', lineHeight: '38px', fontWeight: 'bold', color: '#198754'}} className='d-flex justify-content-center p-4'>Характеристики</h1>
+            {description.map(info =>
+                <Row key={info.id} style={{borderBottom: '1px solid #e8e8ed', padding: 10, fontSize: '20px', lineHeight: '24px'}}> 
+                    <Col md={9} className='mb-3'>{info.title}</Col> <Col md={3}>{info.description} </Col>
                 </Row>
                 )}
-              
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={onHide} variant='outline-danger'>Закрыть</Button>
-          <Button onClick={onHide} variant='outline-success'>Добавить</Button>
-        </Modal.Footer>
-      </Modal>
+        </Row>
+        </Container>
     );
 };
 
-export default CreateDevice;
+export default DevicePage;

@@ -122,7 +122,7 @@ const DevicePage = () => {
             <h1 style={{fontSize: '38px', lineHeight: '38px', fontWeight: 'bold', color: '#198754'}} className='d-flex justify-content-center p-4'>Характеристики</h1>
             {device.info.map(info =>
                 <Row key={info.id} style={{borderBottom: '1px solid #e8e8ed', padding: 10, fontSize: '20px', lineHeight: '24px'}}> 
-                    <Col md={9} className='mb-3'>{info.title}</Col> <Col md={3}>{info.title} </Col>
+                    <Col md={9} className='mb-3'>{info.title}</Col> <Col md={3}>{info.description} </Col>
                 </Row>
                 )}
         </Row>
