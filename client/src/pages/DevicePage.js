@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Image, Row, ToggleButton } from 'react-bootstrap';
-
+import { useParams } from 'react-router-dom';
+import { fetchOneDevice } from '../http/deviceAPI';
 const DevicePage = () => {
-    const device = {id: 1, name: 'Apple iPhone 12 PRO eSIM 128GB Фиолетовый', price: 97900, rating: 5, img: 'https://images.biggeek.ru/1/435/4b14/12465-456bigeek_image2.jpeg'}
+    const [device, setDevice] = useState({info: []})
+    const {id} = useParams()
+    console.log(id)
+    useEffect(() =>{
+        fetchOneDevice(id).then(data => setDevice(data))
+    }, [])
     const variant_radios = [
         { name: 'Новый', value: '1' },
         { name: 'Восстановленный', value: '2' },
@@ -20,23 +26,14 @@ const DevicePage = () => {
     const [variantRadioValue, setVariantRadioValue] = useState('0');
     const [deliveryRadioValue, setDeliveryRadioValue] = useState('0');
     const [paymentRadioValue, setPaymentRadioValue] = useState('0');
-    const description = [
-        {id:1, title: 'Серия', description: 'iPhone 12 PRO'},
-        {id:2, title: 'Память', description: '1 TB'},
-        {id:3, title: 'Процессор', description: 'A12 Bionic'},
-        {id:4, title: 'Диагональ дисплея', description: '6,5"'},
-        {id:5, title: 'Разрешение камеры', description: '48 Мп + 12 Мп + 12 Мп'},
-        {id:6, title: 'Питание', description: 'Li-Ion, 5 500 mAh'},
-        
-        
-    ]
+   
 
     return (
         
         <Container className='mt-3'>
          <Row>
             <Col md={6}>
-                <Image width={500} height={500} src={device.img}/>
+                <Image width={500} height={500} src={process.env.REACT_APP_API_URL + device.img}/>
             </Col>
 
             <Col md={6}>
@@ -123,9 +120,9 @@ const DevicePage = () => {
         </Row>
         <Row className='d-flex flex-column m-3'>
             <h1 style={{fontSize: '38px', lineHeight: '38px', fontWeight: 'bold', color: '#198754'}} className='d-flex justify-content-center p-4'>Характеристики</h1>
-            {description.map(info =>
+            {device.info.map(info =>
                 <Row key={info.id} style={{borderBottom: '1px solid #e8e8ed', padding: 10, fontSize: '20px', lineHeight: '24px'}}> 
-                    <Col md={9} className='mb-3'>{info.title}</Col> <Col md={3}>{info.description} </Col>
+                    <Col md={9} className='mb-3'>{info.title}</Col> <Col md={3}>{info.title} </Col>
                 </Row>
                 )}
         </Row>

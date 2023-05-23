@@ -63,8 +63,8 @@ class DeviceController {
             {
                 where: {id},
                 include: [{model: DeviceInfo, as: 'info'}]
-            },
-        )
+            }
+        ).catch(e => console.log(e))
         return res.json(device)
     }
 }

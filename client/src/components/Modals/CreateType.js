@@ -2,6 +2,10 @@ import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 
 const CreateType = ({show, onHide}) => {
+  const [value, setValue]
+  const addType = () => {
+
+    }
     return (
     <Modal
       show={show}
@@ -24,7 +28,7 @@ const CreateType = ({show, onHide}) => {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={onHide} variant='outline-danger'>Закрыть</Button>
-        <Button onClick={onHide} variant='outline-success'>Добавить</Button>
+        <Button onClick={addType} variant='outline-success'>Добавить</Button>
       </Modal.Footer>
     </Modal>
     );
